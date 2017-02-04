@@ -14532,7 +14532,7 @@ ERHRwZKsRURERHSw/wE0wnXg9EDa2gAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>答案: </strong>最大深度为1时，模型的偏差和方差均较小。最大深度为10时，偏差和方差都很大。在图形中，偏差反映为测试得分和验证得分的距离，距离于大偏差越大；方差反映为图形的阴影区域，阴影区域越大，方差越大。</p>
+<p><strong>答案: </strong>最大深度为1时，模型的偏差较大方差较小。最大深度为10时，偏差较小方差较大。在图形中，偏差反映为测试和验证数据集的得分，偏差越大，两者得分越低；方差放映为训练集得分和测试集得分的差距，两者差距越大，方差越大，差距越小方差越小。</p>
 
 </div>
 </div>
@@ -14604,7 +14604,7 @@ ERHRwZKsRURERHSw/wE0wnXg9EDa2gAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>答案: </strong> K折交叉验证法是将数据集分为K份，每次使用K-1份数据集进行训练，使用1份进行验证，总共进行K-1次独立的算法训练，最后将算法的评估效果取平均的一种方法。在使用网格搜索优化模型时，若使用K折交叉验证法，能够克服数据集本身分布的影响，充分无偏差地评估模型。</p>
+<p><strong>答案: </strong> K折交叉验证法是将数据集分为K份，每次使用K-1份数据集进行训练，使用1份进行验证，总共进行K次独立的算法训练，最后将算法的评估效果取平均的一种方法。在使用网格搜索优化模型时，若使用K折交叉验证法，能够克服数据集本身分布的影响，相对准确地评估模型。</p>
 
 </div>
 </div>
@@ -14614,7 +14614,7 @@ ERHRwZKsRURERHSw/wE0wnXg9EDa2gAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#32451;&#20064;&#65306;&#35757;&#32451;&#27169;&#22411;">&#32451;&#20064;&#65306;&#35757;&#32451;&#27169;&#22411;<a class="anchor-link" href="#&#32451;&#20064;&#65306;&#35757;&#32451;&#27169;&#22411;">&#182;</a></h3><p>在最后一个练习中，你将需要将所学到的内容整合，使用<strong>决策树演算法</strong>训练一个模型。为了保证你得出的是一个最优模型，你需要使用网格搜索法训练模型，以找到最佳的 <code>'max_depth'</code> 参数。你可以把<code>'max_depth'</code> 参数理解为决策树算法在做出预测前，允许其对数据提出问题的数量。决策树是<strong>监督学习算法</strong>中的一种。</p>
+<h4 id="&#32451;&#20064;&#65306;&#35757;&#32451;&#27169;&#22411;">&#32451;&#20064;&#65306;&#35757;&#32451;&#27169;&#22411;<a class="anchor-link" href="#&#32451;&#20064;&#65306;&#35757;&#32451;&#27169;&#22411;">&#182;</a></h4><p>在最后一个练习中，你将需要将所学到的内容整合，使用<strong>决策树演算法</strong>训练一个模型。为了保证你得出的是一个最优模型，你需要使用网格搜索法训练模型，以找到最佳的 <code>'max_depth'</code> 参数。你可以把<code>'max_depth'</code> 参数理解为决策树算法在做出预测前，允许其对数据提出问题的数量。决策树是<strong>监督学习算法</strong>中的一种。</p>
 <p>此外，你会发现你的实现使用的是 <code>ShuffleSplit()</code> 。它也是交叉验证的一种方式（见变量 <code>'cv_sets'</code>）。虽然这不是<strong>问题8</strong>中描述的 K-Fold 交叉验证，这个教程验证方法也很有用！这里 <code>ShuffleSplit()</code> 会创造10个(<code>'n_splits'</code>)混洗过的集合，每个集合中20%(<code>'test_size'</code>)的数据会被用作<strong>验证集</strong>。当你在实现的时候，想一想这跟 K-Fold 交叉验证有哪些相同点，哪些不同点？</p>
 <p>在下方 <code>fit_model</code> 函数中，你需要做的是：</p>
 <ul>
@@ -14660,7 +14660,7 @@ ERHRwZKsRURERHSw/wE0wnXg9EDa2gAAAABJRU5ErkJggg==
     <span class="n">regressor</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">()</span>
 
     <span class="c1"># TODO: Create a dictionary for the parameter &#39;max_depth&#39; with a range from 1 to 10</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)}</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)}</span>
 
     <span class="c1"># TODO: Transform &#39;performance_metric&#39; into a scoring function using &#39;make_scorer&#39; </span>
     <span class="n">scoring_fnc</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">performance_metric</span><span class="p">)</span>
@@ -14738,6 +14738,8 @@ ERHRwZKsRURERHSw/wE0wnXg9EDa2gAAAABJRU5ErkJggg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>4</p>
+<blockquote><p>此答案与问题6的猜测是相同的。与猜测相比，这个结果更加准确，因为这个结果是将所有可能进行遍历并进行比较得出的最优结论。</p>
+</blockquote>
 
 </div>
 </div>
@@ -14830,7 +14832,7 @@ Predicted selling price for Client 3&#39;s home: $931,636.36
 <li>客户1房价40万3千美元</li>
 <li>客户2房价23万7千美元</li>
 <li>客户3房价93万1千美元</li>
-<li>从房屋的特征数值出发，这样的价钱基本合理，价钱最低的房屋房间最少，学区最差，小区较为贫穷。最贵的房屋相比各项条件为最好。</li>
+<li>从房屋的特征数值出发，这样的价钱基本合理.房屋1的价格略低于中位数价格，经过研究，其房间数略低于房间数中位数，社区贫困指数略高于中位数，学生老师比例略高于中位数，因此价格靠近中位数价格也比较合理。房价2，其价钱接近最低价，其房间数略高于最小值，社区贫苦指数接近于最大值，小区相当贫穷，学校师生比例等于最高值（学区差），所以价钱接近最低价。房屋3价格接近最大值，相比各项条件为最好，房间数接近最大值，社区贫困指数接近最小值，学校师生比例接近最小值（学区好），所以房价贵。</li>
 </ul>
 
 </div>
